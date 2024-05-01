@@ -1,11 +1,4 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: lesson14
-
----
-
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: kube-system
+  name: lesson16

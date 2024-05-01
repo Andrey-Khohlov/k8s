@@ -34,6 +34,7 @@ This is a Kubernetes educational project
 ### delete deployment
 - kubectl delete deployment -n default first-deployment
 - kubectl delete -f deployment.yaml
+- kubectl delete deployment -all
 ### delete pods
 - kubectl delete pods hello
 ### access to the cluster
@@ -46,6 +47,8 @@ This is a Kubernetes educational project
 ### run pod
 - kubectl exec hello2 -- date
 - kubectl exec -it hello2 -- sh
+- kubectl exec -it goapp-deployment-d678857cc-crnxd -n lesson16 -c web -- sh
+- -c container -n namespace
 ### log
 - kubectl logs hello
 - kubectl logs -f pi-4dbfh
