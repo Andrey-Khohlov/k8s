@@ -30,8 +30,10 @@ This is a Kubernetes educational project
 ### get
 - kubectl get deployments 
 - kubectl get deploy
+- kubectl get pods -n lesson15 -w
 ### delete deployment
 - kubectl delete deployment -n default first-deployment
+- kubectl delete -f deployment.yaml
 ### delete pods
 - kubectl delete pods hello
 ### access to the cluster
@@ -46,6 +48,7 @@ This is a Kubernetes educational project
 - kubectl exec -it hello2 -- sh
 ### log
 - kubectl logs hello
+- kubectl logs -f pi-4dbfh
 ### port-forward my-comp-port:pod_port
 - kubectl port-forward hello 7788:80
 - kubectl port-forward  -n lesson14 static-web 8080:8080 
@@ -71,6 +74,18 @@ This is a Kubernetes educational project
 - kubectl rollout history deployment.app/goapp-deployment -n lesson15
 - kubectl rollout restart deployment.app/goapp-deployment -n lesson15
 - kubectl rollout undo deployment.app/goapp-deployment -n lesson15
+## job
+- kubectl apply -f job.yaml
+- kubectl delete job.batch/pi
+- kubectl get ev
+## cronjob
+- kubectl get jobs
+- pods=$(kubectl get pods --selector=job-name=hello-28575971 --output=jsonpath={.items[*].metadata.name})
+- kubectl logs $pods
+- kubectl delete cronjob hello
+## deployment scale
+- kubectl scale deployment -n lesson15 goapp-deployment --replicas=5
+
 
 
 
