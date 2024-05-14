@@ -21,6 +21,14 @@ This is a Kubernetes educational project
 - minikube delete --all
 # kubectl
 ## pods/deployment
+### replicaset
+- деплоит в заданом кол-ве и следит за подами 
+- недостаток в том, что при изменении версии приложения нужно убивать эту сущность и запускать новую
+### deployment 
+- отсутствие перерыва в обслуживании при редеплойменте приложения.
+- создаёт replicaset
+- сохраняет историю деплоев, 
+- можно откатиться kubectl rollout undo deployment.app/goapp-deployment -n lesson15 --to-revision=1
 ### create
 - kubectl create deployment first-deployment  --image=andreykhokhlov/l1:v0.2
 ### create pod
@@ -77,6 +85,8 @@ This is a Kubernetes educational project
 - kubectl rollout history deployment.app/goapp-deployment -n lesson15
 - kubectl rollout restart deployment.app/goapp-deployment -n lesson15
 - kubectl rollout undo deployment.app/goapp-deployment -n lesson15
+- kubectl rollout undo deployment.app/goapp-deployment -n lesson15 --to-revision=1
+- rollout status
 ## job
 - kubectl apply -f job.yaml
 - kubectl delete job.batch/pi
